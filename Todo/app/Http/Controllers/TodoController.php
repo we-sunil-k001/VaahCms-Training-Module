@@ -23,7 +23,6 @@ class TodoController extends Controller
         return $todo;
     }
 
-
     /**
      * Create a new Todo
      */
