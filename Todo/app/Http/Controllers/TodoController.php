@@ -61,6 +61,15 @@ class TodoController extends Controller
     }
 
     /**
+     * Mark task as Pending
+     */
+    public function markPending(Todo $todo)
+    {
+        $todo->update(['is_completed'=> false]);
+        return $todo;
+    }
+
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Todo $todo)

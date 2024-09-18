@@ -11,3 +11,4 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResource('todos', TodoController::class);
 Route::put('todos/{todo}/mark-complete', [TodoController::class, 'markComplete']);
+Route::put('todos/{todo}/mark-pending', [TodoController::class, 'markPending']);
