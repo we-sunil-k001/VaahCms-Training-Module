@@ -1,6 +1,6 @@
 <template>
     <div class="container mt-4">
-        <h2>{{ isEditing ? 'Edit Todo' : 'Create Todo' }}</h2>
+        <h2>{{ isEditing ? 'Edit Task' : 'Create a new Task' }}</h2>
         <form @submit.prevent="submitForm">
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
@@ -48,14 +48,22 @@ const validateForm = () => {
     nameError.value = '';
     descriptionError.value = '';
 
-    if (!name.value) {
+    // Trim whitespace from the input values
+    const trimmedName = name.value.trim();     // trim(): Removes whitespace from both ends of the name.value string
+    const trimmedDescription = description.value.trim();
+
+    // Validate name
+    if (!trimmedName) {     // here trimmedName is after removing whitespaces
         nameError.value = 'Name is required';
         return false;
     }
-    if (!description.value) {
+
+    // Validate description
+    if (!trimmedDescription) {
         descriptionError.value = 'Description is required';
         return false;
     }
+
     return true;
 };
 
