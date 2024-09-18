@@ -1,5 +1,5 @@
 <template>
-    <div class="container"> <h3 class="text-success">My Todo</h3></div>
+    <div class="container"> <h3 class="text-dark"><img src="../assets/to-do-list.png"> My Todo</h3></div>
     <div class="container shadow mt-4 p-3">
         <div class="d-flex mb-3">
             <button class="btn btn-secondary " @click="filter = 'all'">All Todos</button>
@@ -86,4 +86,8 @@ const deleteTodo = (id) => {
 };
 </script>
 
-
+<style>
+img{
+    width: 60px;
+}
+</style>

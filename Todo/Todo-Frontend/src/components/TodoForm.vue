@@ -1,6 +1,9 @@
 <template>
     <div class="container mt-4">
-        <h2>{{ is_editing ? 'Edit Task' : 'Create a new Task' }}</h2>
+        <h2>
+            <router-link to="/" class=""><i class="bi bi-arrow-left-circle-fill text-secondary"></i></router-link>
+            {{ is_editing ? 'Edit Task' : 'Create a new Task' }}
+        </h2>
         <form @submit.prevent="submitForm">
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
@@ -49,17 +52,27 @@ const validateForm = () => {
     description_rror.value = '';
 
     // Trim whitespace from the input values
-    const trimmedName = name.value.trim();     // trim(): Removes whitespace from both ends of the name.value string
-    const trimmedDescription = description.value.trim();
+    const trimmed_name = name.value.trim();     // trim(): Removes whitespace from both ends of the name.value string
+    const trimmed_description = description.value.trim();
 
     // Validate name
-    if (!trimmedName) {     // here trimmedName is after removing whitespaces
+    if (!trimmed_name) {     // here trimmed_name is after removing whitespaces
         name_error.value = 'Name is required';
         return false;
     }
 
+    // Check if the task name already exists (for both create and edit)
+    const duplicateTodo = store.todos.find(
+        todo => todo.name.toLowerCase() === trimmed_name.toLowerCase() && todo.id !== parseInt(route.params.id)
+    );
+
+    if (duplicateTodo) {
+        name_error.value = 'Task name already exists. Please choose another name.';
+        return false;
+    }
+
     // Validate description
-    if (!trimmedDescription) {
+    if (!trimmed_description) {
         description_rror.value = 'Description is required';
         return false;
     }
@@ -78,3 +91,8 @@ const submitForm = () => {
     }
 };
 </script>
+<style>
+i{
+    font-size: 29px;
+}
+</style>
