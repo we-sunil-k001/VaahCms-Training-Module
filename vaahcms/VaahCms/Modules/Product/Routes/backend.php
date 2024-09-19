@@ -1,5 +1,7 @@
 <?php
 use VaahCms\Modules\Product\Http\Controllers\Backend\BackendController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +33,4 @@ Route::group(
 /*
  * Include CRUD Routes
  */
-//include("backend/routes-example.php");
+include("backend/routes-productcategorys.php");
