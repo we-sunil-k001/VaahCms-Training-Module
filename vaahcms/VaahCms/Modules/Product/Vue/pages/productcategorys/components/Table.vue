@@ -41,6 +41,32 @@ const useVaah = vaah();
 
             </Column>
 
+            <Column field="categ_id" header="Category ID"
+                    class="overflow-wrap-anywhere"
+                    :sortable="true">
+
+                <template #body="prop">
+                    <Badge v-if="prop.data.deleted_at"
+                           value="Trashed"
+                           severity="danger"></Badge>
+                    {{prop.data.categ_id}}
+                </template>
+
+            </Column>
+
+            <Column field="parent_categ_id" header="Parent Category ID"
+                    class="overflow-wrap-anywhere"
+                    :sortable="true">
+
+                <template #body="prop">
+                    <Badge v-if="prop.data.deleted_at"
+                           value="Trashed"
+                           severity="danger"></Badge>
+                    {{prop.data.parent_categ_id}}
+                </template>
+
+            </Column>
+
 
                 <Column field="updated_at" header="Updated"
                         v-if="store.isViewLarge()"
@@ -48,7 +74,7 @@ const useVaah = vaah();
                         :sortable="true">
 
                     <template #body="prop">
-                        {{useVaah.toLocalTimeShortFormat(prop.data.updated_at)}}
+                        {{useVaah.strToSlug(prop.data.updated_at)}}
                     </template>
 
                 </Column>
