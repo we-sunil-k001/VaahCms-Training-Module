@@ -135,7 +135,7 @@ const toggleFormMenu = (event) => {
                 </Message>
 
 
-                <VhField label="Name">
+                <VhField label="Title">
                     <div class="p-inputgroup">
                         <InputText class="w-full"
                                    placeholder="Enter the name"
@@ -154,6 +154,18 @@ const toggleFormMenu = (event) => {
                                    name="productcategorys-slug"
                                    data-testid="productcategorys-slug"
                                    v-model="store.item.slug" required/>
+                        <div class="required-field hidden"></div>
+                    </div>
+                </VhField>
+
+                <VhField label="Category ID">
+                    <div class="p-inputgroup">
+                        <InputText class="w-full"
+                                   placeholder="Enter the product category"
+                                   name="productcategorys-categid"
+                                   data-testid="productcategorys-categid"
+                                   v-model="store.item.categ_id"
+                                   required/>
                         <div class="required-field hidden"></div>
                     </div>
                 </VhField>
