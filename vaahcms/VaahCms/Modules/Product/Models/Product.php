@@ -10,14 +10,14 @@ use WebReinvent\VaahCms\Traits\CrudWithUuidObservantTrait;
 use WebReinvent\VaahCms\Models\User;
 use WebReinvent\VaahCms\Libraries\VaahSeeder;
 
-class ProductCategory extends VaahModel
+class Product extends VaahModel
 {
 
     use SoftDeletes;
     use CrudWithUuidObservantTrait;
 
     //-------------------------------------------------
-    protected $table = 'vh_product_category';
+    protected $table = 'vh_products';
     //-------------------------------------------------
     protected $dates = [
         'created_at',
@@ -29,9 +29,12 @@ class ProductCategory extends VaahModel
         'uuid',
         'name',
         'slug',
-        'categ_id',
-        'parent_categ_id',
-        'image_src',
+        'description',
+        'price',
+        'quantity',
+        'sku',
+        'category_id',
+        'image',
         'is_active',
         'created_by',
         'updated_by',
@@ -646,10 +649,11 @@ class ProductCategory extends VaahModel
     //-------------------------------------------------
     // Custom code below
     // Define the relationship to ProductCategory
-    public function products()
+    public function category()
     {
-        return $this->hasMany(Product::class, 'category_id');
+        return $this->belongsTo(ProductCategory::class, 'category_id');
     }
+
     //-------------------------------------------------
     //-------------------------------------------------
     //-------------------------------------------------

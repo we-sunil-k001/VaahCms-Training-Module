@@ -34,3 +34,4 @@ Route::group(
  * Include CRUD Routes
  */
 include("backend/routes-productcategorys.php");
+include("backend/routes-products.php");
