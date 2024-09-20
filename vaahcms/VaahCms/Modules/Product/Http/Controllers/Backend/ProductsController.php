@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use VaahCms\Modules\Product\Models\Product;
+use VaahCms\Modules\Product\Models\ProductCategory;
 
 
 class ProductsController extends Controller
@@ -30,6 +31,7 @@ class ProductsController extends Controller
             $data['fillable']['columns'] = Product::getFillableColumns();
             $data['fillable']['except'] = Product::getUnFillableColumns();
             $data['empty_item'] = Product::getEmptyItem();
+            $data['product_category'] = ProductCategory::where('is_active',1)->select('id','name','categ_id')->get();
 
             $data['actions'] = [];
 
@@ -55,6 +57,13 @@ class ProductsController extends Controller
     {
         try{
             return Product::getList($request);
+            //$category = Product::with('category');
+
+            return [
+                'success' => true,
+                'data' => $category,
+            ];
+
         }catch (\Exception $e){
             $response = [];
             $response['success'] = false;

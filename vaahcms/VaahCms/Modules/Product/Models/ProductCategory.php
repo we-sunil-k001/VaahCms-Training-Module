@@ -646,10 +646,7 @@ class ProductCategory extends VaahModel
     //-------------------------------------------------
     // Custom code below
     // Define the relationship to ProductCategory
-    public function products()
-    {
-        return $this->hasMany(Product::class, 'category_id');
-    }
+
     //-------------------------------------------------
     //-------------------------------------------------
     //-------------------------------------------------

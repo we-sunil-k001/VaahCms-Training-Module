@@ -66,6 +66,7 @@ class Product extends VaahModel
             'deleted_by',
         ];
     }
+
     //-------------------------------------------------
     public static function getFillableColumns()
     {
@@ -282,6 +283,7 @@ class Product extends VaahModel
         $list->isActiveFilter($request->filter);
         $list->trashedFilter($request->filter);
         $list->searchFilter($request->filter);
+        //dd($list);
 
         $rows = config('vaahcms.per_page');
 
@@ -651,7 +653,7 @@ class Product extends VaahModel
     // Define the relationship to ProductCategory
     public function category()
     {
-        return $this->belongsTo(ProductCategory::class, 'category_id');
+        return $this->belongsTo(ProductCategory::class, 'categ_id', 'id')->select('id','name', 'categ_id');
     }
 
     //-------------------------------------------------
