@@ -37,7 +37,12 @@ const items = ref([
                 label: 'Products',
                 icon: 'fa-regular fa-chart-bar',
                 route: "/products"
-            }
+            },
+            {
+                label: 'Taxonomies',
+                icon: 'fa-regular fa-chart-bar',
+                route: "/taxonomies"
+            },
         ]
     },
 ]);

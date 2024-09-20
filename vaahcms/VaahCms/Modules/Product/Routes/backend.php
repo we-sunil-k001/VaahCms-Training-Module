@@ -35,3 +35,4 @@ Route::group(
  */
 include("backend/routes-productcategorys.php");
 include("backend/routes-products.php");
+include("backend/routes-taxonomies.php");
