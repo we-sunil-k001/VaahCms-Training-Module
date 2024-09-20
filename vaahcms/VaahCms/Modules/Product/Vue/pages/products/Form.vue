@@ -158,6 +158,76 @@ const toggleFormMenu = (event) => {
                     </div>
                 </VhField>
 
+                <VhField label="Description">
+                    <div class="p-inputgroup">
+                        <textarea class="w-full"
+                                  v-model="store.item.description"
+                                  placeholder="Enter description"
+                                  name="description"
+                                  data-testid="description"></textarea>
+
+                        <div class="required-field hidden"></div>
+                    </div>
+                </VhField>
+
+
+                <VhField label="Price">
+                    <div class="p-inputgroup">
+                        <InputText class="w-full"
+                                   placeholder="Enter the Price"
+                                   name="price"
+                                   data-testid="price"
+                                   v-model="store.item.price" required/>
+                        <div class="required-field hidden"></div>
+                    </div>
+                </VhField>
+
+
+                <VhField label="Quantity">
+                    <div class="p-inputgroup">
+                        <InputText class="w-full"
+                                   placeholder="Enter the Quantity"
+                                   name="quantity"
+                                   data-testid="quantity"
+                                   v-model="store.item.quantity" required/>
+                        <div class="required-field hidden"></div>
+                    </div>
+                </VhField>
+
+                <VhField label="SKU">
+                    <div class="p-inputgroup">
+                        <InputText class="w-full"
+                                   placeholder="Enter the SKU"
+                                   name="sku"
+                                   data-testid="sku"
+                                   v-model="store.item.sku" required/>
+                        <div class="required-field hidden"></div>
+                    </div>
+                </VhField>
+
+
+<!--                <VhField label="Category">-->
+<!--                        <Dropdown  v-model="store.item.categ_id"-->
+<!--                                   :options="store.assets.product_category"-->
+<!--                                   option-label="name"-->
+<!--                                   option-value="categ_id"-->
+<!--                                   name="category"-->
+<!--                                   data-testid="category"-->
+<!--                                   required/>-->
+<!--                        <div class="required-field hidden"></div>-->
+<!--                </VhField>-->
+
+                <VhField label="Category">
+                        <Dropdown  v-model="store.item.category_id"
+                                   :options="store.assets.product_category"
+                                   option-label="name"
+                                   option-value="categ_id"
+                                   name="category"
+                                   data-testid="category"
+                                   required/>
+                        <div class="required-field hidden"></div>
+                </VhField>
+
                 <VhField label="Is Active">
                     <InputSwitch v-bind:false-value="0"
                                  v-bind:true-value="1"
