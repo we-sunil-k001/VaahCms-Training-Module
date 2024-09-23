@@ -221,7 +221,7 @@ const toggleFormMenu = (event) => {
                         <Dropdown  v-model="store.item.category_id"
                                    :options="store.assets.product_category"
                                    option-label="name"
-                                   option-value="categ_id"
+                                   option-value="id"
                                    name="category"
                                    data-testid="category"
                                    required/>
