@@ -100,7 +100,7 @@ const openTaxonomyTypeModal = () => {
                     :sortable="true"
             >
                 <template #body="prop">
-                    {{ useVaah.toLocalTimeShortFormat(prop.data.updated_at) }}
+                    {{ useVaah.strToSlug(prop.data.updated_at) }}
                 </template>
             </Column>
 
