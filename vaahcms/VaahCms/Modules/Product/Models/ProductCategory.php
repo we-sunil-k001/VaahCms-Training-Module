@@ -651,5 +651,9 @@ class ProductCategory extends VaahModel
     //-------------------------------------------------
     //-------------------------------------------------
 
+    public function products()
+    {
+        return $this->belongsTo(ProductCategory::class, 'category_id', 'id')->select('id','name','category_id');
+    }
 
 }

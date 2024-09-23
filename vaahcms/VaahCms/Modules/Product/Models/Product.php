@@ -119,6 +119,11 @@ class Product extends VaahModel
         )->select('id', 'uuid', 'first_name', 'last_name', 'email');
     }
 
+    public function categories()
+    {
+        return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
+    }
+
     //-------------------------------------------------
     public function getTableColumns()
     {
@@ -277,12 +282,13 @@ class Product extends VaahModel
 
     }
     //-------------------------------------------------
-    public static function getList($request)
+        public static function getList($request)
     {
         $list = self::getSorted($request->filter);
         $list->isActiveFilter($request->filter);
         $list->trashedFilter($request->filter);
         $list->searchFilter($request->filter);
+        $list->with('categories');
         //dd($list);
 
         $rows = config('vaahcms.per_page');

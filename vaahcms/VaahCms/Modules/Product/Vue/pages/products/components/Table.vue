@@ -25,6 +25,8 @@ const useVaah = vaah();
                     headerStyle="width: 3em">
             </Column>
 
+
+
             <Column field="id" header="ID" :style="{width: '80px'}" :sortable="true">
             </Column>
 
@@ -85,6 +87,14 @@ const useVaah = vaah();
                 </template>
             </Column>
 
+            <Column field="categoryName" header="Category"
+                    class="overflow-wrap-anywhere"
+                    :sortable="true">
+                <template #body="prop">
+                    {{prop.data.categories?.name}}
+                </template>
+            </Column>
+
 
                 <Column field="updated_at" header="Updated"
                         v-if="store.isViewLarge()"
@@ -92,7 +102,7 @@ const useVaah = vaah();
                         :sortable="true">
 
                     <template #body="prop">
-                        {{useVaah.toLocalTimeShortFormat(prop.data.updated_at)}}
+                        {{useVaah.strToSlug(prop.data.updated_at)}}
                     </template>
 
                 </Column>

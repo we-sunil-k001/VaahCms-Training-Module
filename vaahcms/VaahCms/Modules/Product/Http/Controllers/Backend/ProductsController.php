@@ -32,6 +32,7 @@ class ProductsController extends Controller
             $data['fillable']['except'] = Product::getUnFillableColumns();
             $data['empty_item'] = Product::getEmptyItem();
             $data['product_category'] = ProductCategory::where('is_active',1)->select('id','name','categ_id')->get();
+            //$data['category_name'] = ProductCategory::where('is_active',1)->select('id','name','categ_id')->get();
 
             $data['actions'] = [];
 
